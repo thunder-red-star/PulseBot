@@ -1,0 +1,11 @@
+{
+	"modules": {
+		"info": "All the information about this bot.",
+		"roleplay": "Roleplay commands that let you act like another person.",
+		"fanart": "All the fanart.",
+		"fanfics": "All the fanfictions.",
+		"miscellaneous": "Other commands that don't fit in any predefined category.",
+		"utility": "Helpful functions that don't necessarily pertain to MCYT.",
+		"owner": "Commands that only the owner can use and are possibly dangerous."
+	}
+}
