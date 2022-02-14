@@ -22,4 +22,6 @@ module.exports = async member => {
 	// main font in stuypulse logo
 	Canvas.registerFont('./fonts/futura.ttf', { family: 'Futura' })
 
+	// load the StuyPulse battery shell from the assets folder
+	const battery = await Canvas.loadImage('./assets/battery.png');
 }
