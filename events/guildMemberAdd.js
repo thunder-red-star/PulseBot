@@ -37,11 +37,11 @@ module.exports = async member => {
 	ctx.fillText('Welcome to ' + member.guild.name + ", " + member.user.username + "!", canvas.width / 2, 230);
 
 	ctx.font = '40px Futura';
-	ctx.fillText(member.user.username + "!", canvas.width / 2, 220);
+	ctx.fillText(member.user.username + "!", canvas.width / 2, 270);
 
 	// at y = 400, write how many members we have, but write the number of members in the Futura font instead of the Avenir font
 	ctx.font = '40px Futura';
-	ctx.fillText(member.guild.memberCount, canvas.width / 2, 400);
+	ctx.fillText(member.guild.memberCount, canvas.width / 2, 410);
 	ctx.font = '30px Avenir';
 	ctx.fillText("members", canvas.width / 2, 440);
 
@@ -49,7 +49,7 @@ module.exports = async member => {
 	const avatar = await Canvas.loadImage(member.user.displayAvatarURL({ format: 'png' }));
 
 	// draw the avatar to the canvas centered horizontally and between 250 and 400 pixels vertically, with a size of 100x100, and with a circular border
-	ctx.drawImage(avatar, canvas.width / 2 - 50, 275, 100, 100);
+	ctx.drawImage(avatar, canvas.width / 2 - 50, 290, 100, 100);
 
 	// clip the avatar to a circle and create a circle border around the avatar with a width of 3 pixels
 	ctx.beginPath();
@@ -75,5 +75,5 @@ module.exports = async member => {
 		.setTimestamp()
 		.setFooter('StuyPulse', 'https://i.imgur.com/Q0QYQ8l.png');
 
-	welcomeChannel.send({embeds: [embed], files: [file]});
+	welcomeChannel.send({embeds: [embed], files: [attachment]});
 }
