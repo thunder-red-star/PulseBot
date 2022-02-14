@@ -4,5 +4,5 @@ module.exports = (client) => {
 	// client.on('messageCreate', reqEvent('messageCreate'));
 	// client.on('guildCreate', reqEvent('guildCreate'));
 	client.on("interactionCreate", reqEvent("interactionCreate"));
-	//client.on('guildMemberAdd', reqEvent('guildMemberAdd'))
+	client.on('guildMemberAdd', reqEvent('guildMemberAdd'))
 };
