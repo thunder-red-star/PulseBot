@@ -20,7 +20,7 @@ module.exports = class extends BaseCluster {
 		commandModules = JSON.parse(commandModules);
 		this.client.modules = Object.keys(commandModules.modules);
 
-		this.client.brandColor = "#32EDF7";
+		this.client.brandColor = "#FF0000";
 
 		this.commandsList = [];
 
@@ -38,7 +38,8 @@ module.exports = class extends BaseCluster {
 
 		this.client.commandsList = this.commandsList;
 
-		deploy(this.commandsList);
+        deploy(this.commandsList)
+
 		require("./utils/eventLoader.js")(this.client);
 		this.client.login(process.env.token);
 	}

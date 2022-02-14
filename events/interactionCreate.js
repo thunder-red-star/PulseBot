@@ -23,11 +23,11 @@ module.exports = async (interaction) => {
 	const options = interaction.options;
 	try {
 		await command.execute(interaction, client, options);
-	} catch (error) {
-		console.error(error);
-		await interaction.reply({
-			content: "There was an error while executing this command!",
-			ephemeral: true,
-		});
+	} catch (err) {
+		console.error(err)
+		interaction.reply(
+			"An unexpected error has occurred. Please take a screenshot and send it to the support server!\n```" +
+			err.stack +
+			"```", {ephemeral: true});
 	}
 };

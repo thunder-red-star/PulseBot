@@ -10,7 +10,7 @@ module.exports = {
 		let inviteEmbed = new Discord.MessageEmbed()
 			.setTitle("Invite")
 			.setDescription(
-				"This bot isn't gonna be useful for you yet, so no invite. And even if you do invite it, I will make it leave the server. Invite the actual bot which will hopefully have this bot's commands later on."
+				"You can invite this bot but it doesn't do much yet. Check my profile!"
 			)
 			.setColor(client.brandColor);
 		await interaction.reply({ embeds: [inviteEmbed] });

@@ -2,8 +2,8 @@ const fs = require("fs");
 const Discord = require("discord.js");
 const { REST } = require("@discordjs/rest");
 const { Routes } = require("discord-api-types/v9");
-const clientId = "802569367371776060";
-const guildId = "923220742932406353";
+const clientId = "942575519319347210";
+const guildId = "895798253935792159";
 const token = process.env.token;
 
 const Chalk = require("chalk");
