@@ -7,7 +7,7 @@ module.exports = async member => {
 	if (!welcomeChannel) {
 		welcomeChannel = member.guild.channels.cache.find(channel => channel.name === 'general');
 		if (!welcomeChannel) {
-			welcomeChannel = member.guild.channels.cache.get(member.guild.systemChannelID);
+			welcomeChannel = member.guild.channels.cache.get(member.guild.systemChannelId);
 		}
 	}
 
