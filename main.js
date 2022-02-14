@@ -5,7 +5,7 @@ module.exports = class extends BaseCluster {
 	async launch() {
 		const Discord = require("discord.js");
 		const myIntents = new Discord.Intents(32767);
-		const client = new Discord.Client({ intents: myIntents });
+		const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MEMBERS", "GUILD_MESSAGES"] });
 		const keepAlive = require("./server.js");
 		const Chalk = require("chalk");
 		const config = require("./config/config.json");
