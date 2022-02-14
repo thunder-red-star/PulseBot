@@ -34,7 +34,10 @@ module.exports = async member => {
 	ctx.fillStyle = '#ff0000';
 
 	// write the welcome message to the canvas
-	ctx.fillText('Welcome to ' + member.guild.name + ", " + member.user.username + "!", canvas.width / 2, 250);
+	ctx.fillText('Welcome to ' + member.guild.name + ", " + member.user.username + "!", canvas.width / 2, 230);
+
+	ctx.font = '40px Futura';
+	ctx.fillText(member.user.username + "!", canvas.width / 2, 220);
 
 	// at y = 400, write how many members we have, but write the number of members in the Futura font instead of the Avenir font
 	ctx.font = '40px Futura';
@@ -45,12 +48,32 @@ module.exports = async member => {
 	// get the user's avatar and draw it to the canvas
 	const avatar = await Canvas.loadImage(member.user.displayAvatarURL({ format: 'png' }));
 
-	// draw the avatar to the canvas centered horizontally and between 250 and 400 pixels vertically, with a size of 100x100
-	ctx.drawImage(avatar, canvas.width / 2 - 50, 250, 100, 100);
+	// draw the avatar to the canvas centered horizontally and between 250 and 400 pixels vertically, with a size of 100x100, and with a circular border
+	ctx.drawImage(avatar, canvas.width / 2 - 50, 275, 100, 100);
+
+	// clip the avatar to a circle and create a circle border around the avatar with a width of 3 pixels
+	ctx.beginPath();
+	ctx.arc(canvas.width / 2, 325, 50, 0, Math.PI * 2, true);
+	ctx.closePath();
+	ctx.clip();
+
+	ctx.lineWidth = 3;
+	ctx.strokeStyle = '#ff0000';
+	ctx.beginPath();
+	ctx.arc(canvas.width / 2, 325, 50, 0, Math.PI * 2, true);
+	ctx.closePath();
 
 	// create a new attachment from the canvas
 	const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'welcome.png');
 
-	// send the attachment to the welcome channel
-	welcomeChannel.send(attachment);
+	// create an embed with the attachment and send it to the welcome channel
+	const embed = new Discord.MessageEmbed()
+		.setColor('#ff0000')
+		.setTitle('Welcome to ' + member.guild.name + '!')
+		.setDescription('Welcome to ' + member.guild.name + ", " + member.user.username + '!')
+		.setImage('attachment://welcome.png')
+		.setTimestamp()
+		.setFooter('StuyPulse', 'https://i.imgur.com/Q0QYQ8l.png');
+
+	welcomeChannel.send({embeds: [embed], files: [file]});
 }
